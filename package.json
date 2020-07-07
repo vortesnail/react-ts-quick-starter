@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/vortesnail/react-ts-quick-starter.git"
   },
-  "keywords": ["react-project", "typescript-project", "react-typescript"],
+  "keywords": ["react-project", "typescript-project", "react-typescript", "react-ts-quick-starter"],
   "author": {
     "name": "vortesnail",
     "url": "https://github.com/vortesnail",
