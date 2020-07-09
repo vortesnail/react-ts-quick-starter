@@ -8,7 +8,12 @@
     "type": "git",
     "url": "git+https://github.com/vortesnail/react-ts-quick-starter.git"
   },
-  "keywords": ["react-project", "typescript-project", "react-typescript", "react-ts-quick-starter"],
+  "keywords": [
+    "react-project",
+    "typescript-project",
+    "react-typescript",
+    "react-ts-quick-starter"
+  ],
   "author": {
     "name": "vortesnail",
     "url": "https://github.com/vortesnail",
@@ -18,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/vortesnail/react-ts-quick-starter/issues"
   },
-  "homepage": "https://github.com/vortesnail/react-ts-quick-starter#readme"
+  "homepage": "https://github.com/vortesnail/react-ts-quick-starter#readme",
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
 }
