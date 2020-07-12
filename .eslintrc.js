@@ -15,6 +15,10 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:promise/recommended',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
+    'prettier/unicorn',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,6 +29,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'unicorn', 'promise', '@typescript-eslint'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.tsx', '.ts', '.js', '.json'],
+      },
+    },
+  },
   rules: {
     'import/extensions': [
       ERROR,
@@ -32,8 +43,8 @@ module.exports = {
       {
         ts: 'never',
         tsx: 'never',
-        json: 'never',
         js: 'never',
+        json: 'never',
       },
     ],
 
@@ -77,7 +88,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': OFF,
 
     'lines-between-class-members': [ERROR, 'always'],
-    indent: [ERROR, 2, { SwitchCase: 1 }],
+    // indent: [ERROR, 2, { SwitchCase: 1 }],
     'linebreak-style': [ERROR, 'unix'],
     quotes: [ERROR, 'single'],
     semi: [ERROR, 'never'],
