@@ -88,7 +88,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': OFF,
 
     'lines-between-class-members': [ERROR, 'always'],
-    // indent: [ERROR, 2, { SwitchCase: 1 }],
+    indent: [ERROR, 2, { SwitchCase: 1 }],
     'linebreak-style': [ERROR, 'unix'],
     quotes: [ERROR, 'single'],
     semi: [ERROR, 'never'],
