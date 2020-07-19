@@ -4,7 +4,11 @@
   "description": "Quickly create react + typescript project development environment and scaffold for developing npm package components",
   "main": "index.js",
   "scripts": {
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "build": "webpack --config ./scripts/config/webpack.common.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "lint": "npm run lint-eslint && npm run lint-stylelint",
+    "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+    "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}"
   },
   "husky": {
     "hooks": {
@@ -67,6 +71,8 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-order": "^4.1.0",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
