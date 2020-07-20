@@ -47,6 +47,7 @@ module.exports = {
         json: 'never',
       },
     ],
+    'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
 
     'unicorn/better-regex': ERROR,
     'unicorn/prevent-abbreviations': OFF,
