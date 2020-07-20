@@ -4,7 +4,7 @@
   "description": "Quickly create react + typescript project development environment and scaffold for developing npm package components",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack --config ./scripts/config/webpack.dev.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "npm run lint-eslint && npm run lint-stylelint",
@@ -64,6 +64,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.6",
     "eslint-plugin-unicorn": "^20.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
@@ -76,6 +77,7 @@
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9"
   }
 }
