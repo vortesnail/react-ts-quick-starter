@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { isDev, PROJECT_PATH } = require('../constants')
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
     path: resolve(PROJECT_PATH, './dist'),
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: resolve(PROJECT_PATH, './public/index.html'),
       filename: 'index.html',
