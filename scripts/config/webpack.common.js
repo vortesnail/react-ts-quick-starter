@@ -3,6 +3,37 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { isDev, PROJECT_PATH } = require('../constants')
 
+const getCssLoaders = (importLoaders) => [
+  'style-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: false,
+      sourceMap: isDev,
+      importLoaders,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: [
+        // 修复一些和 flex 布局相关的 bug
+        require('postcss-flexbugs-fixes'),
+        require('postcss-preset-env')({
+          autoprefixer: {
+            grid: true,
+            flexbox: 'no-2009'
+          },
+          stage: 3,
+        }),
+        require('postcss-normalize'),
+      ],
+      sourceMap: isDev,
+    },
+  },
+]
+
 module.exports = {
   entry: {
     app: resolve(PROJECT_PATH, './src/app.js'),
@@ -15,34 +46,16 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              sourceMap: true,
-              importLoaders: 0,
-            },
-          },
-        ],
+        use: getCssLoaders(1),
       },
       {
         test: /\.less$/,
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              sourceMap: true,
-              importLoaders: 1,
-            },
-          },
+          ...getCssLoaders(2),
           {
             loader: 'less-loader',
             options: {
-              sourceMap: true,
+              sourceMap: isDev,
             },
           },
         ],
@@ -50,19 +63,11 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              sourceMap: true,
-              importLoaders: 1,
-            },
-          },
+          ...getCssLoaders(2),
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              sourceMap: isDev,
             },
           },
         ],
