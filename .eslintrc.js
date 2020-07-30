@@ -34,6 +34,7 @@ module.exports = {
       node: {
         extensions: ['.tsx', '.ts', '.js', '.json'],
       },
+      typescript: {},
     },
   },
   rules: {
@@ -48,6 +49,8 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
+    'import/prefer-default-export': OFF,
+    'import/no-unresolved': ERROR,
 
     'unicorn/better-regex': ERROR,
     'unicorn/prevent-abbreviations': OFF,
