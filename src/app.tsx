@@ -9,6 +9,7 @@ interface IProps {
 
 function App(props: IProps) {
   const { name, age } = props
+
   return (
     <div className='app'>
       <Header title='Typescript' />
