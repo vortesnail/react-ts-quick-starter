@@ -6,7 +6,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
-    host: SERVER_HOST, // 指定
+    host: SERVER_HOST,
     port: SERVER_PORT, // 默认是8080
     stats: 'errors-only', // 终端仅打印 error
     clientLogLevel: 'silent', // 日志等级
