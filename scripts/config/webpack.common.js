@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const { isDev, PROJECT_PATH } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
@@ -153,5 +154,6 @@ module.exports = {
         configFile: resolve(PROJECT_PATH, './tsconfig.json'),
       },
     }),
+    new HardSourceWebpackPlugin(),
   ],
 }

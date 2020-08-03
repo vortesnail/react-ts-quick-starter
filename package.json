@@ -85,6 +85,7 @@
     "eslint-plugin-unicorn": "^20.1.0",
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^5.0.13",
+    "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "less": "^3.12.2",
