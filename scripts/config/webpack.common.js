@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const { isDev, PROJECT_PATH } = require('../constants')
+const { isDev, PROJECT_PATH, IS_OPEN_HARD_SOURCE } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
   'style-loader',
@@ -154,6 +154,10 @@ module.exports = {
         configFile: resolve(PROJECT_PATH, './tsconfig.json'),
       },
     }),
-    new HardSourceWebpackPlugin(),
-  ],
+    IS_OPEN_HARD_SOURCE && new HardSourceWebpackPlugin(),
+  ].filter(Boolean),
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+  },
 }
