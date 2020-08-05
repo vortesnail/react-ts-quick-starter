@@ -1,27 +1,22 @@
-import React from 'react'
-import Header from 'Components/Header'
-import { add } from 'Utils/math'
+import React, { Suspense, useState } from 'react'
 
-interface IProps {
-  name: string
-  age: number
-  sex?: string
-}
+const ComputedOne = React.lazy(() => import('Components/ComputedOne'))
+const ComputedTwo = React.lazy(() => import('Components/ComputedTwo'))
 
-function App(props: IProps) {
-  const { name, age, sex } = props
+function App() {
+  const [showTwo, setShowTwo] = useState<boolean>(false)
 
   return (
     <div className='app'>
-      <Header title='Typescript' />
-      <span>{`Hello! I'm ${name}, sex is ${sex}, ${age} years old.`}</span>
-      <p>{add(1, 2)}</p>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ComputedOne a={1} b={2} />
+        {showTwo && <ComputedTwo a={3} b={4} />}
+        <button type='button' onClick={() => setShowTwo(true)}>
+          显示Two
+        </button>
+      </Suspense>
     </div>
   )
-}
-
-App.defaultProps = {
-  sex: 'male',
 }
 
 export default App

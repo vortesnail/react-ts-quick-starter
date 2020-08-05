@@ -49,6 +49,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
       'Src': resolve(PROJECT_PATH, './src'),
+      'Common': resolve(PROJECT_PATH, './src/common'),
       'Components': resolve(PROJECT_PATH, './src/components'),
       'Utils': resolve(PROJECT_PATH, './src/utils'),
     }
@@ -159,5 +160,11 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: true,
+    },
   },
 }

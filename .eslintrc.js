@@ -90,6 +90,9 @@ module.exports = {
     'react/jsx-indent-props': [ERROR, 2],
     'react/jsx-indent': [ERROR, 2],
     'react/jsx-one-expression-per-line': OFF,
+    'react/destructuring-assignment': OFF,
+    'react/state-in-constructor': OFF,
+    'react/jsx-props-no-spreading': OFF,
 
     'lines-between-class-members': [ERROR, 'always'],
     indent: [ERROR, 2, { SwitchCase: 1 }],
