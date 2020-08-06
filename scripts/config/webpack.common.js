@@ -4,10 +4,11 @@ const CopyPlugin = require('copy-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { isDev, PROJECT_PATH, IS_OPEN_HARD_SOURCE } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
-  'style-loader',
+  isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
     loader: 'css-loader',
     options: {
@@ -156,6 +157,11 @@ module.exports = {
       },
     }),
     IS_OPEN_HARD_SOURCE && new HardSourceWebpackPlugin(),
+    !isDev && new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
+      ignoreOrder: false,
+    }),
   ].filter(Boolean),
   externals: {
     react: 'React',
