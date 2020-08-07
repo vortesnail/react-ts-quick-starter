@@ -5,6 +5,8 @@ const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { isDev, PROJECT_PATH, IS_OPEN_HARD_SOURCE } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
@@ -168,6 +170,16 @@ module.exports = {
     'react-dom': 'ReactDOM',
   },
   optimization: {
+    minimize: !isDev,
+    minimizer: [
+      !isDev && new TerserPlugin({
+        extractComments: false,
+        terserOptions: {
+          compress: { pure_funcs: ['console.log'] },
+        }
+      }),
+      !isDev && new OptimizeCssAssetsPlugin()
+    ].filter(Boolean),
     splitChunks: {
       chunks: 'all',
       name: true,

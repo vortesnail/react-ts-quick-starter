@@ -1,4 +1,5 @@
 const { resolve } = require('path')
+const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const glob = require('glob')
@@ -13,6 +14,10 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new PurgeCSSPlugin({
       paths: glob.sync(`${resolve(PROJECT_PATH, './src')}/**/*.{tsx,scss,less,css}`, { nodir: true }),
+    }),
+    new webpack.BannerPlugin({
+      raw: true,
+      banner: '/** @preserve Powered by react-ts-quick-starter (https://github.com/vortesnail/react-ts-quick-starter) */',
     }),
   ],
 })
