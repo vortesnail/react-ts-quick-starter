@@ -1,14 +1,20 @@
-import React from 'react'
-import { add } from 'Utils/math'
-import printInfo from 'Utils/info'
+import React, { Suspense, useState } from 'react'
 
-import ComputedOne from 'Components/ComputedOne'
+const ComputedOne = React.lazy(() => import('Components/ComputedOne'))
+const ComputedTwo = React.lazy(() => import('Components/ComputedTwo'))
 
 function App() {
+  const [showTwo, setShowTwo] = useState<boolean>(false)
+
   return (
     <div className='app'>
-      <ComputedOne a={5} b={6} />
-      {add(1, 2)}
+      <Suspense fallback={<div>Loading...</div>}>
+        <ComputedOne a={1} b={2} />
+        {showTwo && <ComputedTwo a={3} b={4} />}
+        <button type='button' onClick={() => setShowTwo(true)}>
+          显示Two
+        </button>
+      </Suspense>
     </div>
   )
 }

@@ -78,6 +78,7 @@ module.exports = {
       },
     ],
     'unicorn/prefer-query-selector': ERROR,
+    'unicorn/no-null': OFF,
 
     '@typescript-eslint/no-useless-constructor': ERROR,
     '@typescript-eslint/no-empty-function': WARN,
