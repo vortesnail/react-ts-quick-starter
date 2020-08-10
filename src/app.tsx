@@ -12,7 +12,7 @@ function App() {
         <ComputedOne a={1} b={2} />
         {showTwo && <ComputedTwo a={3} b={4} />}
         <button type='button' onClick={() => setShowTwo(true)}>
-          显示Two
+          显示Two啊啊啊
         </button>
       </Suspense>
     </div>

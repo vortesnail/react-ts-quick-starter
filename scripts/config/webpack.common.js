@@ -124,6 +124,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolve(PROJECT_PATH, './public/index.html'),
       filename: 'index.html',
+      cache: false,
       minify: isDev ? false : {
         removeAttributeQuotes: true,
         collapseWhitespace: true,
