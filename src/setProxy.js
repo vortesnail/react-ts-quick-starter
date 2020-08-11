@@ -15,4 +15,4 @@ const proxySettings = {
   // .....
 }
 
-export default proxySettings
+module.exports = proxySettings
