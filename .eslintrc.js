@@ -45,7 +45,6 @@ module.exports = {
         ts: 'never',
         tsx: 'never',
         js: 'never',
-        json: 'never',
       },
     ],
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
@@ -94,6 +93,9 @@ module.exports = {
     'react/destructuring-assignment': OFF,
     'react/state-in-constructor': OFF,
     'react/jsx-props-no-spreading': OFF,
+
+    'jsx-a11y/click-events-have-key-events': OFF,
+    'jsx-a11y/no-noninteractive-element-interactions': OFF,
 
     'lines-between-class-members': [ERROR, 'always'],
     indent: [ERROR, 2, { SwitchCase: 1 }],
