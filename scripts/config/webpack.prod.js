@@ -15,6 +15,7 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new PurgeCSSPlugin({
       paths: glob.sync(`${resolve(PROJECT_PATH, './src')}/**/*.{tsx,scss,less,css}`, { nodir: true }),
+      whitelist: ['html', 'body']
     }),
     new webpack.BannerPlugin({
       raw: true,

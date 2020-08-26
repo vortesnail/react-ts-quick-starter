@@ -1,6 +1,16 @@
+html,
+body {
+  margin: 0;
+}
+
 #root {
   display: flex;
   align-items: center;
   color: #fff;
   background-color: lightcoral;
+}
+
+.app {
+  padding: 10px;
+  background-color: lightskyblue;
 }

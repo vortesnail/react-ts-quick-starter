@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from 'react'
+import './app.scss'
 
 const ComputedOne = React.lazy(() => import('Components/ComputedOne'))
 const ComputedTwo = React.lazy(() => import('Components/ComputedTwo'))
