@@ -20,6 +20,7 @@
         },
         "useESModules": true
       }
-    ]
+    ],
+    "transform-class-properties"
   ]
 }

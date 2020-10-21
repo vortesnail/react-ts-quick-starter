@@ -70,6 +70,7 @@
     "@typescript-eslint/parser": "^3.6.0",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "clean-webpack-plugin": "^3.0.0",
     "conventional-changelog-cli": "^2.0.34",
     "copy-webpack-plugin": "^6.0.3",
