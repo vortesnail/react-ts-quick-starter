@@ -1,6 +1,8 @@
 # Custom ignore
 build/
 dist/
+yarn.lock
+package-lock.json
 
 # General
 .DS_Store
