@@ -46,8 +46,22 @@ module.exports = {
       config: [__filename],
     },
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      Src: paths.appSrc,
+      Components: paths.appSrcComponents,
+      Utils: paths.appSrcUtils,
+    },
+  },
   module: {
     rules: [
+      {
+        test: /\.(tsx?|js)$/,
+        loader: 'babel-loader',
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/,
         use: getCssLoaders(1),

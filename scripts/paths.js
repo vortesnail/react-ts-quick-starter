@@ -37,6 +37,8 @@ module.exports = {
   appHtml: resolveApp('public/index.html'),
   appNodeModules: resolveApp('node_modules'), // node_modules path
   appSrc: resolveApp('src'),
+  appSrcComponents: resolveApp('src/components'),
+  appSrcUtils: resolveApp('src/utils'),
   appPackageJson: resolveApp('package.json'),
   appTsConfig: resolveApp('tsconfig.json'),
   moduleFileExtensions,
