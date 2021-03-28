@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('../paths');
 const { isDevelopment, isProduction } = require('../env');
+const { imageInlineSizeLimit } = require('../conf');
 
 const getCssLoaders = (importLoaders) => [
   'style-loader',
@@ -62,6 +63,19 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: imageInlineSizeLimit,
+          },
+        },
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2?)$/,
+        type: 'asset/resource',
       },
     ],
   },

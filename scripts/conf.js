@@ -12,6 +12,9 @@ const shouldOpenAnalyzer = false;
 const ANALYZER_HOST = 'localhost';
 const ANALYZER_PORT = '8888';
 
+// Resource size limit
+const imageInlineSizeLimit = 4 * 1024;
+
 module.exports = {
   PROJECT_PATH,
   PROJECT_NAME,
@@ -20,4 +23,5 @@ module.exports = {
   shouldOpenAnalyzer,
   ANALYZER_HOST,
   ANALYZER_PORT,
+  imageInlineSizeLimit,
 };

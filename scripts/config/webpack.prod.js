@@ -10,6 +10,7 @@ module.exports = merge(common, {
   output: {
     filename: 'js/[name].[contenthash:8].js',
     path: paths.appBuild,
+    assetModuleFilename: 'images/[name].[contenthash:8].[ext]',
   },
   plugins: [new CleanWebpackPlugin()],
 });
