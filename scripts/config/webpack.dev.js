@@ -15,7 +15,7 @@ module.exports = merge(common, {
     stats: 'errors-only',
     clientLogLevel: 'silent',
     open: true,
-    hot: false,
+    hot: true,
     noInfo: true,
   },
 });
