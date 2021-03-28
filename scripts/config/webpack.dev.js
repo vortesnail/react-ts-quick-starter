@@ -18,6 +18,9 @@ module.exports = merge(common, {
     open: true,
     hot: true,
     noInfo: true,
+    proxy: {
+      ...require(paths.appProxySetup),
+    },
   },
   plugins: [new Webpack.HotModuleReplacementPlugin()],
 });
