@@ -11,7 +11,7 @@ function App(props: IProps) {
   return (
     <div className='app'>
       <Header />
-      <span>{`Hello! I'm ${name}, ${age} years old.`}</span>
+      <span>{`Hello! I'm ${name}, ${age} yearssss old.`}</span>
     </div>
   );
 }

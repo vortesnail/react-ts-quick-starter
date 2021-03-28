@@ -1,5 +1,7 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const paths = require('../paths');
 const { isDevelopment, isProduction } = require('../env');
 const { imageInlineSizeLimit } = require('../conf');
@@ -54,6 +56,10 @@ module.exports = {
       Utils: paths.appSrcUtils,
     },
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+  },
   module: {
     rules: [
       {
@@ -98,5 +104,35 @@ module.exports = {
       template: paths.appHtml,
       cache: true,
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          context: paths.appPublic,
+          from: '*',
+          to: paths.appBuild,
+          toType: 'dir',
+          globOptions: {
+            dot: true,
+            gitignore: true,
+            ignore: ['**/index.html'],
+          },
+        },
+      ],
+    }),
+    new WebpackBar({
+      name: isDevelopment ? 'RUNNING' : 'BUNDLING',
+      color: isDevelopment ? '#52c41a' : '#722ed1',
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: paths.appTsConfig,
+      },
+    }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+    },
+  },
 };
