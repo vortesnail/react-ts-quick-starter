@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -7,7 +8,7 @@ const { isDevelopment, isProduction } = require('../env');
 const { imageInlineSizeLimit } = require('../conf');
 
 const getCssLoaders = (importLoaders) => [
-  'style-loader',
+  isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
     loader: 'css-loader',
     options: {
@@ -130,10 +131,4 @@ module.exports = {
       },
     }),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 0,
-    },
-  },
 };
