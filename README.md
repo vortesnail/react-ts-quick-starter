@@ -2,25 +2,10 @@
 
 > 分支为 `master`
 
-往下翻可查看当前这版与上一版配置不同的点，大同小异：
+往下翻可查看当前这版与上一版配置不同的点，大同小异。
 
-<hr>
-
-# 以下是 webpack4 + React16 + Typescript 搭建版本
-
-> 分支是 `webpack4+React16`。
-
-自己搭的 React + Typescript 项目开发环境，也写了文章作为记录：
-
-- [我是这样搭建 Typescript+React 项目环境的！（2.7w 字详解)](https://github.com/vortesnail/blog/issues/14)
-
-该脚手架经过本人在生产环境的使用，具备可用性，而且由于自己塔的，非常灵活，希望大家也能学会自己搭一套自己的脚手架。
-
-欢迎大家阅读，评论，star！
-
-<hr>
-
-# 两个版本配置不同点
+<details>
+<summary>点击查看差异点</summary>
 
 ## ESLint 和 Prettier 的冲突
 
@@ -297,3 +282,19 @@ module.exports = {
 ## css 代码压缩
 
 之前使用的是 `optimize-css-assets-webpack-plugin` 来对 css 文件进行压缩，现在推荐使用 [css-minimizer-webpack-plugin](https://webpack.docschina.org/plugins/css-minimizer-webpack-plugin/#root)。
+
+</details>
+
+<hr>
+
+# 以下是 webpack4 + React16 + Typescript 搭建版本
+
+> 分支是 `webpack4+React16`。
+
+自己搭的 React + Typescript 项目开发环境，也写了文章作为记录：
+
+- [我是这样搭建 Typescript+React 项目环境的！（2.7w 字详解)](https://github.com/vortesnail/blog/issues/14)
+
+该脚手架经过本人在生产环境的使用，具备可用性，而且由于自己塔的，非常灵活，希望大家也能学会自己搭一套自己的脚手架。
+
+欢迎大家阅读，评论，star！
