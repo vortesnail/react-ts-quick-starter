@@ -298,3 +298,7 @@ module.exports = {
 该脚手架经过本人在生产环境的使用，具备可用性，而且由于自己塔的，非常灵活，希望大家也能学会自己搭一套自己的脚手架。
 
 欢迎大家阅读，评论，star！
+
+# 其它实用插件
+
+- 如果你要开启 css module，想要通过 `className={styles['xxxxx]}` 能得到提示（比如 `xxxxx`），那你可能需要这个插件：[typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)。
