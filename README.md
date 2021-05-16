@@ -301,4 +301,20 @@ module.exports = {
 
 # 其它实用插件
 
-- 如果你要开启 css module，想要通过 `className={styles['xxxxx]}` 能得到提示（比如 `xxxxx`），那你可能需要这个插件：[typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)。
+一. 如果你要开启 css module，想要通过 `className={styles['xxxxx]}` 能得到提示（比如 `xxxxx`），那你可能需要这个插件：[typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)。
+
+使用该插件时，`.vscode/settings.json` 中必须有以下配置：
+
+```json
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
+```
+
+然后 `tsconfig.json` 中添加以下配置：
+
+```json
+"jsx": "react",
+"plugins": [{ "name": "typescript-plugin-css-modules" }]
+```
